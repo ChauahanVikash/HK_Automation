@@ -1,5 +1,5 @@
 codes = {
-    
+
     answers : [
         `#include <bits/stdc++.h>
         using namespace std;
@@ -19,4 +19,8 @@ codes = {
             return 0;
         }`
     ]
+}
+
+module.exports = {
+    codes : codes
 }
