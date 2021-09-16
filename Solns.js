@@ -13,11 +13,11 @@ codes = {
             for(int i = 0; i < number_of_elements; i++){
                cin >> array[i];
                sum_of_array += array[i];
-            }
+            
             
             cout << sum_of_array;
             return 0;
-        }`
+        `
     ]
 }
 

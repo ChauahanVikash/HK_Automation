@@ -92,19 +92,44 @@ function quesSolver(page , ques , ans){
         console.log("in quesSolve");
         let quesclickPro = ques.click();
         console.log("in quesSolvepro");
-        quesclickPro
+        
+        
+        quesclickPro.then(function(){
+            let getEditorinFocusp = waitAndClick(".monaco-editor.no-user-select.mac.vs", page ) ;
+            return getEditorinFocusp;
+        })
+        // .then(function(){
+        //     return waitAndClick(".checkbox-input", page);
+        // }).then(function(){
+        //     let wait2sPro = page.waitForTimeout(2000);
+        //     return wait2sPro ;
+        // }).then(function(){
+        //     return waitAndClick(".input.text-area.custominput" ,page);
+        // }).then(function(){
+        //     let inputTyped = page.keyboard.type(ans);
+        //     return inputTyped ;
+        // }).then(function(){
+        //     return waitAndClick(".input.text-area.custominput" ,page);
+        // })
         .then(function(){
-        let getEditorinFocusp = waitAndClick(".monaco-editor.no-user-select.vs", page ) ;
-        return getEditorinFocusp;
+            return page.keyboard.down("Meta");
         }).then(function(){
-            return page.keyboard.down("Control" , {delay:100});
+            return page.keyboard.press("C" , {delay : 150});
+         }).then(function(){
+            return page.keyboard.press("A" , {delay:100});
         }).then(function(){
-            return page.keyboard.press("A" , {delay : 50});
+            return page.keyboard.press("Backspace" , {delay : 150});
         }).then(function(){
-            return page.keyboard.press("X" , {delay : 50});
+            return page.keyboard.press("V" , {delay : 150});
         }).then(function(){
-            return page.keyboard.up("Control" , {delay:100});
+            return page.keyboard.up("Meta" , {delay : 150});
         }).then(function(){
+            let inputTyped = page.keyboard.type(ans);
+            return inputTyped ;
+        }).then(function(){
+
+        })
+        .then(function(){
             resolve();
         }).catch(function(err){
             reject(err);
